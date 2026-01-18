@@ -2,13 +2,19 @@ package main
 
 import (
 	"fmt"
-	"practice/homework01"
+	"practice/homework02"
+	"sync"
 )
 
 func main() {
-	//homework01.SingleNumber([]int{1, 1, 2, 3, 3, 4, 4, 5, 6, 6, 5})
-	//fmt.Println(homework01.IsPalindrome2(-9))
-	//fmt.Println(homework01.IsValid2("((}))()"))
-	fmt.Println(homework01.RemoveDuplicates([]int{1, 2, 6, 2, 3, 4, 4, 3, 2, 5}))
-	//fmt.Println(homework01.Merge())
+	var wg sync.WaitGroup
+	wg.Add(10)
+	var count int64
+	count = 1
+	for i := 0; i < 10; i++ {
+
+		go homework02.AddOnethousand2(&wg, &count)
+	}
+	wg.Wait()
+	fmt.Println(count)
 }

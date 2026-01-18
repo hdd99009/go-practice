@@ -235,7 +235,6 @@ func RemoveDuplicates(nums []int) int {
 					//fmt.Println(i, j)
 					//fmt.Println(nums)
 				} else {
-
 				}
 			}
 
